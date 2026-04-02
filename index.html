@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pythonecs51</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0d1117;
+      color: #e6edf3;
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #238636, #2ea043);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      padding: 3rem 3.5rem;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.03),
+        0 16px 48px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #58a6ff, #bc8cff, #f78166);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .project-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #1f6feb, #58a6ff);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+      font-size: 1.75rem;
+      box-shadow: 0 4px 20px rgba(88, 166, 255, 0.3);
+    }
+
+    .project-name {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #e6edf3;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .project-name span {
+      background: linear-gradient(135deg, #58a6ff, #bc8cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, #58a6ff, #bc8cff);
+      margin: 1.5rem auto;
+      border-radius: 2px;
+    }
+
+    .repo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 0.85rem 1.5rem;
+      margin-top: 0.5rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .repo-section:hover {
+      border-color: #58a6ff;
+    }
+
+    .repo-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .repo-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #58a6ff;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .repo-icon {
+      font-size: 1rem;
+      color: #8b949e;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #e6edf3;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8b949e;
+      letter-spacing: 0.03em;
+    }
+
+    .footer strong {
+      color: #bc8cff;
+      font-weight: 600;
+    }
+
+    .footer-line {
+      width: 1px;
+      height: 12px;
+      background: #30363d;
+      display: inline-block;
+      margin: 0 0.6rem;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 2rem 1.75rem;
+      }
+
+      .project-name {
+        font-size: 1.8rem;
+      }
+
+      .stats {
+        gap: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="badge">&#9679; Active Project</div>
+
+    <div class="card">
+
+      <div class="project-icon">🐍</div>
+
+      <h1 class="project-name"><span>pythonecs51</span></h1>
+
+      <p style="color:#8b949e; font-size:0.95rem; margin-top:0.75rem; line-height:1.6;">
+        A modern Python project built with precision and performance in mind.
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="repo-section">
+        <span class="repo-icon">📁</span>
+        <span class="repo-label">Repository</span>
+        <span style="color:#30363d; font-size:0.9rem;">|</span>
+        <span class="repo-name">Pythonecs51</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-value">🐍</span>
+          <span class="stat-label">Python</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">⚡</span>
+          <span class="stat-label">Fast</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">🔒</span>
+          <span class="stat-label">Secure</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">🌐</span>
+          <span class="stat-label">Open</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <span>Developed by</span>
+    <strong> Royal Bengal AI</strong>
+    <span class="footer-line"></span>
+    <span>All rights reserved &copy; 2025</span>
+  </footer>
+
+</body>
+</html>
